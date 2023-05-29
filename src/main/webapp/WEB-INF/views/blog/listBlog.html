@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/showFormCreate}">Create Blog</a><br>
+<a th:href="@{/findAll}">Comment</a>
+<table border="1" cellpadding="10px">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th colspan="2">ACTION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="b,blogStat:${blog}">
+        <td th:text="${blogStat.count}"></td>
+        <td th:text="${b.getId()}"></td>
+        <td th:text="${b.getBlogName()}"></td>
+        <td th:text="${b.getDescription()}"></td>
+        <td>
+            <button style="background-color: #edcc4a; color: #ffffff"><a th:href="@{'/showFormEdit/'+${b.getId()}}">Edit</a></button>
+        </td>
+        <td>
+            <button style="background-color: #d30505; color: #ffffff"><a th:href="@{'/delete/'+${b.getId()}}">Delete</a></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

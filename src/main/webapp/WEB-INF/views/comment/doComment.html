@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/createCmm}" method="post" th:object="${newComment}">
+  <select name="evaluate">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+  <br>
+  <label>Author :</label> <br>
+  <input type="text" th:field="*{author}"> <br>
+  <label> Feedback :</label> <br>
+  <textarea name="" id="" cols="30" rows="10" th:field="*{feedback}"></textarea> <br>
+  <button type="submit">Comment</button>
+</form>
+</body>
+</html>
